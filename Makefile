@@ -8,19 +8,18 @@ INCLUDES += -I $(SRC_DIR)
 
 CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage
 
-SRC_FILES += \
-	$(SRC_DIR)/Det.c \
+TARGET = UT_Det
+SRC_FILE = $(SRC_DIR)/Det.c
+TEST_FILE = $(TEST_DIR)/UT_Det.c
 
-TEST_FILES += \
-	$(TEST_DIR)/UT_Det.c \
-
-all: $(SRC_FILES)
+all: $(TARGET)
 	@mkdir -p $(BUILD_DIR)
 	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR)
 	@rm -f $(BUILD_DIR)/*.gcov
 	@rm -f $(BUILD_DIR)/*.gcda
 	@rm -f $(BUILD_DIR)/*.gcno
-	gcov $^
+	$(TARGET)
+	gcov $(TEST_FILE)
 	# @mv *.gcov $(BUILD_DIR)
 	# @mv *.gcda $(BUILD_DIR)
 	# @mv *.gcno $(BUILD_DIR)
@@ -29,5 +28,5 @@ all: $(SRC_FILES)
 clean:
 	@rm -rf $(BUILD_DIR)
 
-$(TEST_FILES): $(SRC_FILES)
-	gcc $@ $(CFLAGS)
+$(TARGET): $(SRC_FILE) $(TEST_FILE)
+	gcc $(TEST_FILE) -o $@ $(CFLAGS)
