@@ -23,7 +23,7 @@ all: $(TARGET)
 	# @mv *.gcov $(BUILD_DIR)
 	# @mv *.gcda $(BUILD_DIR)
 	# @mv *.gcno $(BUILD_DIR)
-	gcovr -r . --print-summary --html-details -o $(BUILD_DIR)/coverage.html
+	gcovr -r . --print-summary --filter $(SRC_FILE) --html-details -o $(BUILD_DIR)/coverage.html
 
 clean:
 	@rm -rf $(BUILD_DIR)
