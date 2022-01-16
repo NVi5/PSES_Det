@@ -1,5 +1,5 @@
-#ifndef STD_TYPES_H
-#define STD_TYPES_H
+#ifndef STD_TYPES
+#define STD_TYPES
 
 /**===================================================================================================================*\
  @file Definicja typów standardowych Autosar 4.x+
@@ -44,4 +44,4 @@ typedef uint8 Std_ReturnType;
 #define STD_ON      0x01U
 #define STD_OFF     0x00U
 
-#endif /* STD_TYPES_H */
+#endif /* STD_TYPES */

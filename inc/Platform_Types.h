@@ -1,5 +1,5 @@
-#ifndef PLATFORM_TYPES_H
-#define PLATFORM_TYPES_H
+#ifndef PLATFORM_TYPES
+#define PLATFORM_TYPES
 
 /*====================================================================================================================*\
  \@file Definicja typów standardowych Autosar 4.x+
@@ -74,4 +74,4 @@ typedef enum
 #endif
 
 
-#endif /* PLATFORM_TYPES_H */
+#endif /* PLATFORM_TYPES */
