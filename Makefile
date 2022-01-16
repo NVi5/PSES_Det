@@ -15,18 +15,15 @@ TEST_FILE = $(TEST_DIR)/UT_Det.c
 all: $(TARGET)
 	@mkdir -p $(BUILD_DIR)
 	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR)
-	@rm -f $(BUILD_DIR)/*.gcov
 	@rm -f $(BUILD_DIR)/*.gcda
-	@rm -f $(BUILD_DIR)/*.gcno
-	$(TARGET)
+	$(BUILD_DIR)/$(TARGET)
 	gcov $(TEST_FILE)
-	# @mv *.gcov $(BUILD_DIR)
-	# @mv *.gcda $(BUILD_DIR)
-	# @mv *.gcno $(BUILD_DIR)
+	@mv *.gcda $(BUILD_DIR)
+	@mv *.gcno $(BUILD_DIR)
 	gcovr -r . --print-summary --filter $(SRC_FILE) --html-details -o $(BUILD_DIR)/coverage.html
 
 clean:
 	@rm -rf $(BUILD_DIR)
 
 $(TARGET): $(SRC_FILE) $(TEST_FILE)
-	gcc $(TEST_FILE) -o $@ $(CFLAGS)
+	gcc $(TEST_FILE) -o $(BUILD_DIR)/$@ $(CFLAGS)
