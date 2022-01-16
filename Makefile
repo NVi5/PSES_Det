@@ -24,7 +24,7 @@ all: $(BUILD_DIR)/$(TARGET)
 clean:
 	@rm -rf $(BUILD_DIR)
 
-$(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE)
+$(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE) $(BUILD_DIR)
 	gcc $(TEST_FILE) -o $@ $(CFLAGS)
 
 $(BUILD_DIR):
