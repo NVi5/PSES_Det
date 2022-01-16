@@ -13,7 +13,6 @@ SRC_FILE = $(SRC_DIR)/Det.c
 TEST_FILE = $(TEST_DIR)/UT_Det.c
 
 all: $(BUILD_DIR)/$(TARGET)
-	@mkdir -p $(BUILD_DIR)
 	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR)
 	@rm -f $(BUILD_DIR)/*.gcda
 	./$(BUILD_DIR)/$(TARGET)
@@ -27,3 +26,6 @@ clean:
 
 $(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE)
 	gcc $(TEST_FILE) -o $@ $(CFLAGS)
+
+$(BUILD_DIR):
+    @mkdir -p $@
