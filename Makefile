@@ -12,11 +12,11 @@ TARGET = UT_Det
 SRC_FILE = $(SRC_DIR)/Det.c
 TEST_FILE = $(TEST_DIR)/UT_Det.c
 
-all: $(TARGET)
+all: $(BUILD_DIR)/$(TARGET)
 	@mkdir -p $(BUILD_DIR)
 	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR)
 	@rm -f $(BUILD_DIR)/*.gcda
-	$(BUILD_DIR)/$(TARGET)
+	./$(BUILD_DIR)/$(TARGET)
 	gcov $(TEST_FILE)
 	@mv *.gcda $(BUILD_DIR)
 	@mv *.gcno $(BUILD_DIR)
@@ -25,5 +25,5 @@ all: $(TARGET)
 clean:
 	@rm -rf $(BUILD_DIR)
 
-$(TARGET): $(SRC_FILE) $(TEST_FILE)
-	gcc $(TEST_FILE) -o $(BUILD_DIR)/$@ $(CFLAGS)
+$(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE)
+	gcc $(TEST_FILE) -o $@ $(CFLAGS)
