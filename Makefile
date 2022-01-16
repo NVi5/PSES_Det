@@ -28,4 +28,4 @@ $(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE)
 	gcc $(TEST_FILE) -o $@ $(CFLAGS)
 
 $(BUILD_DIR):
-    @mkdir -p $@
+	@mkdir -p $@
