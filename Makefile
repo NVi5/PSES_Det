@@ -9,7 +9,7 @@ INCLUDES += -I $(SRC_DIR)
 CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage
 
 TARGET = UT_Det
-SRC_FILE = $(SRC_DIR)/Det.c
+SRC_FILES = $(SRC_DIR)/Det.c $(SRC_DIR)/Det_Externals.c
 TEST_FILE = $(TEST_DIR)/UT_Det.c
 
 all: $(BUILD_DIR)/$(TARGET)
@@ -19,12 +19,12 @@ all: $(BUILD_DIR)/$(TARGET)
 	@mv *.gcno $(BUILD_DIR)
 	gcov -o $(BUILD_DIR) $(TEST_FILE)
 	@mv *.gcov $(BUILD_DIR)
-	gcovr -r . --print-summary --filter $(SRC_FILE) --html-details -o $(BUILD_DIR)/coverage.html
+	gcovr -r . --print-summary --filter "src/Det.*" --html-details -o $(BUILD_DIR)/coverage.html
 
 clean:
 	@rm -rf $(BUILD_DIR)
 
-$(BUILD_DIR)/$(TARGET): $(SRC_FILE) $(TEST_FILE) $(BUILD_DIR)
+$(BUILD_DIR)/$(TARGET): $(SRC_FILES) $(TEST_FILE) $(BUILD_DIR)
 	gcc $(TEST_FILE) -o $@ $(CFLAGS)
 
 $(BUILD_DIR):

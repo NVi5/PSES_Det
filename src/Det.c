@@ -4,6 +4,7 @@
 */
 
 #include "Det.h"
+#include "Det_Externals.h"
 
 void Det_Init (const Det_ConfigType* ConfigPtr) {
 
