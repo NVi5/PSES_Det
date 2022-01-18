@@ -11,6 +11,13 @@
 
 DEFINE_FFF_GLOBALS
 
+FAKE_VALUE_FUNC(Std_ReturnType, MyErrorHook, uint16, uint8, uint8, uint8)
+FAKE_VALUE_FUNC(Std_ReturnType, MyErrorHook2, uint16, uint8, uint8, uint8)
+FAKE_VALUE_FUNC(Std_ReturnType, MyRuntimeErrorCallout, uint16, uint8, uint8, uint8)
+FAKE_VALUE_FUNC(Std_ReturnType, MyRuntimeErrorCallout2, uint16, uint8, uint8, uint8)
+FAKE_VALUE_FUNC(Std_ReturnType, MyTransientFaultCallout, uint16, uint8, uint8, uint8)
+FAKE_VALUE_FUNC(Std_ReturnType, MyTransientFaultCallout2, uint16, uint8, uint8, uint8)
+
 /**
     @brief Test of Det_Init implementation
 */
