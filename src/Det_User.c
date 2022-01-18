@@ -1,5 +1,5 @@
 /**
-    @file Det_Externals.c
+    @file Det_User.c
     @brief Implementation of Default Error Tracer Externals
 */
 

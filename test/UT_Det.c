@@ -7,7 +7,6 @@
 #include "Std_Types.h"
 
 #include "Det.c" /* This is not a mistake - static variebles are exposed for tests */
-#include "Det_Externals.c" /* This is not a mistake - static variebles are exposed for tests */
 
 /**
     @brief Test of Det_Init implementation
