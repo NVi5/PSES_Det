@@ -9,7 +9,7 @@ INCLUDES += -I $(SRC_DIR)
 CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage
 
 TARGET = UT_Det
-SRC_FILES = $(SRC_DIR)/Det.c $(SRC_DIR)/Det_Externals.c
+SRC_FILES = $(SRC_DIR)/Det.c $(SRC_DIR)/Det_User.c
 TEST_FILE = $(TEST_DIR)/UT_Det.c
 
 all: $(BUILD_DIR)/$(TARGET)
