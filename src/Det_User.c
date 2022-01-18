@@ -1,30 +1,37 @@
 /**
     @file Det_User.c
-    @brief Implementation of Default Error Tracer Externals
+    @brief Implementation of User Error Hooks and Callouts
 */
 
 #include "Det_Externals.h"
+#include <stdio.h>
 
-void Det_Init2 (const Det_ConfigType* ConfigPtr) {
-
+Std_ReturnType MyErrorHook(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Error: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }
 
-Std_ReturnType Det_ReportError2 (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
-
+Std_ReturnType MyErrorHook2(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Error 2: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }
 
-void Det_Start2 (void) {
-
+Std_ReturnType MyRuntimeErrorCallout(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Runtime Error Callout: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }
 
-Std_ReturnType Det_ReportRuntimeError2 (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
-
+Std_ReturnType MyRuntimeErrorCallout2(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Runtime Error Callout 2: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }
 
-Std_ReturnType Det_ReportTransientFault2 (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
-
+Std_ReturnType MyTransientFaultCallout(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Transient Fault Callout: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }
 
-void Det_GetVersionInfo2 (Std_VersionInfoType* versioninfo) {
-
+Std_ReturnType MyTransientFaultCallout2(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId) {
+    printf("Reported Transient Fault Callout 2: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d",
+            ModuleId, InstanceId, ApiId, ErrorId);
 }

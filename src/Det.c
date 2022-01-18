@@ -6,11 +6,11 @@
 #include "Det.h"
 #include "Det_Externals.h"
 
-void Det_Init (const Det_ConfigType* ConfigPtr) {
-    
+void Det_Init(const Det_ConfigType* ConfigPtr) {
+
 }
 
-Std_ReturnType Det_ReportError (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
+Std_ReturnType Det_ReportError(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
     exit(-1);
 }
 
@@ -18,18 +18,19 @@ void Det_Start (void) {
 
 }
 
-Std_ReturnType Det_ReportRuntimeError (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
+Std_ReturnType Det_ReportRuntimeError(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
 
 }
 
-Std_ReturnType Det_ReportTransientFault (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
+Std_ReturnType Det_ReportTransientFault(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
 
 }
 
-void Det_GetVersionInfo (Std_VersionInfoType* versioninfo) {
+void Det_GetVersionInfo(Std_VersionInfoType* versioninfo) {
     if (NULL == versioninfo) {
         /**
          * @req [SWS_Det_00301]
+         * @req [SWS_Det_00052]
          * Det_GetVersionInfo called with null parameterpointer
          */
         Det_ReportError(DET_MODULE_ID, 0, 3, DET_E_PARAM_POINTER);

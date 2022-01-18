@@ -19,7 +19,7 @@ all: $(BUILD_DIR)/$(TARGET)
 	@mv *.gcno $(BUILD_DIR)
 	gcov -o $(BUILD_DIR) $(TEST_FILE)
 	@mv *.gcov $(BUILD_DIR)
-	gcovr -r . --print-summary --filter "src/Det.*" --html-details -o $(BUILD_DIR)/coverage.html
+	gcovr -r . --print-summary --filter "src/Det.c" --html-details -o $(BUILD_DIR)/coverage.html
 
 clean:
 	@rm -rf $(BUILD_DIR)

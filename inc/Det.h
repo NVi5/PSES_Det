@@ -9,15 +9,15 @@
 #ifndef DET
 #define DET
 
-/*
+/**
     @req [SWS_BSW_00024]
     Include AUTOSAR Standard Types Header to Implementation header
 */
 #include "Std_Types.h"
 
-/* 
+/**
     @req [SWS_BSW_00059]
-    Define Published information elements 
+    Define Published information elements
 */
 #define DET_MODULE_ID            1
 #define DET_VENDOR_ID            1
@@ -25,10 +25,28 @@
 #define DET_SW_MINOR_VERSION     11
 #define DET_SW_PATCH_VERSION     0
 
-/*
+/**
     @req [SWS_BSW_00073]
 */
 #define DET_E_PARAM_POINTER     0x01
+
+/**
+    @brief Type used as User_Error_Hooks.
+    @req [SWS_Det_00181]
+*/
+typedef Std_ReturnType (*Det_ErrorHook_t)(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId);
+
+/**
+    @brief Type used as DetReportRuntimeErrorCallout.
+    @req [SWS_Det_00184]
+*/
+typedef Det_ErrorHook_t Det_RuntimeErrorCallout_t;
+
+/**
+    @brief Type used as DetReportTransientFaultCallout.
+    @req [SWS_Det_00187]
+*/
+typedef Det_ErrorHook_t Det_TransientFaultCallout_t;
 
 /**
     @brief Configuration data structure of the Det module.
