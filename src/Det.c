@@ -28,13 +28,13 @@ Std_ReturnType Det_ReportTransientFault (uint16 ModuleID, uint8 InstanceID, uint
 
 void Det_GetVersionInfo (Std_VersionInfoType* versioninfo) {
     if (NULL == versioninfo) {
+        // TODO: handle null pointer error
+    }
+    else {
         versioninfo->vendorID = DET_MODULE_ID;
         versioninfo->moduleID = DET_VENDOR_ID;
         versioninfo->sw_major_version = DET_SW_MAJOR_VERSION;
         versioninfo->sw_minor_version = DET_SW_MINOR_VERSION;
         versioninfo->sw_patch_version = DET_SW_PATCH_VERSION;
-    }
-    else {
-        // TODO: handle null pointer error
     }
 }
