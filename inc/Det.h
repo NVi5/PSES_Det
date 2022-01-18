@@ -9,14 +9,14 @@
 #ifndef DET
 #define DET
 
-/**
+/*
     @req [SWS_BSW_00024]
     Include AUTOSAR Standard Types Header to Implementation header
 */
 #include "Std_Types.h"
 
-/** 
-    @req SWS_BSW_00059
+/* 
+    @req [SWS_BSW_00059]
     Define Published information elements 
 */
 #define DET_MODULE_ID            1
@@ -24,6 +24,11 @@
 #define DET_SW_MAJOR_VERSION     21
 #define DET_SW_MINOR_VERSION     11
 #define DET_SW_PATCH_VERSION     0
+
+/*
+    @req [SWS_BSW_00073]
+*/
+#define DET_E_PARAM_POINTER     0x01
 
 /**
     @brief Configuration data structure of the Det module.

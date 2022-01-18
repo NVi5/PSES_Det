@@ -7,11 +7,11 @@
 #include "Det_Externals.h"
 
 void Det_Init (const Det_ConfigType* ConfigPtr) {
-
+    
 }
 
 Std_ReturnType Det_ReportError (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId) {
-
+    exit(-1);
 }
 
 void Det_Start (void) {
@@ -28,7 +28,11 @@ Std_ReturnType Det_ReportTransientFault (uint16 ModuleID, uint8 InstanceID, uint
 
 void Det_GetVersionInfo (Std_VersionInfoType* versioninfo) {
     if (NULL == versioninfo) {
-        // TODO: handle null pointer error
+        /**
+         * @req [SWS_Det_00301]
+         * Det_GetVersionInfo called with null parameterpointer
+         */
+        Det_ReportError(DET_MODULE_ID, 0, 3, DET_E_PARAM_POINTER);
     }
     else {
         versioninfo->vendorID = DET_MODULE_ID;
