@@ -52,7 +52,6 @@
 /**
     @defgroup ImplementationSpecificErrors Implementation specific errors
     @req [SWS_BSW_00059]
-    Define Published information elements
 */
 /**@{*/
 /** 
