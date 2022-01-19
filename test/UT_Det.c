@@ -23,7 +23,68 @@ FAKE_VALUE_FUNC(Std_ReturnType, MyTransientFaultCallout2, uint16, uint8, uint8, 
 */
 void Test_Of_Det_Init(void)
 {
+    const Det_ConfigType Det_Config;
+    Det_Init(&Det_Config);
+    TEST_CHECK(det_cfg.isInitialized == TRUE);
+}
 
+/**
+    @brief Test of Det_Start implementation
+*/
+void Test_Of_Det_Start(void)
+{
+    Det_Start();
+}
+
+/**
+    @brief Test of Det_ReportError implementation
+*/
+void Test_Of_Det_ReportError(void)
+{
+    Std_ReturnType returnValue;
+    returnValue = Det_ReportError(0, 0, 0, 0);
+    // TODO test exit() behavior
+    (void)returnValue;
+}
+
+/**
+    @brief Test of Det_ReportRuntimeError implementation
+*/
+void Test_Of_Det_ReportRuntimeError(void)
+{
+    Std_ReturnType returnValue = E_NOT_OK;
+    returnValue = Det_ReportRuntimeError(0, 0, 0, 0);
+    TEST_CHECK(returnValue == E_OK);
+    TEST_CHECK(MyRuntimeErrorCallout_fake.call_count == 0);
+    TEST_CHECK(MyRuntimeErrorCallout2_fake.call_count == 0);
+
+    returnValue = E_NOT_OK;
+    const Det_ConfigType Det_Config;
+    Det_Init(&Det_Config);
+    returnValue = Det_ReportRuntimeError(0, 0, 0, 0);
+    TEST_CHECK(returnValue == E_OK);
+    TEST_CHECK(MyRuntimeErrorCallout_fake.call_count == 1);
+    TEST_CHECK(MyRuntimeErrorCallout2_fake.call_count == 1);
+}
+
+/**
+    @brief Test of Det_ReportTransientFault implementation
+*/
+void Test_Of_Det_ReportTransientFault(void)
+{
+    Std_ReturnType returnValue = E_NOT_OK;
+    returnValue = Det_ReportTransientFault(0, 0, 0, 0);
+    TEST_CHECK(returnValue == E_OK);
+    TEST_CHECK(MyTransientFaultCallout_fake.call_count == 0);
+    TEST_CHECK(MyTransientFaultCallout2_fake.call_count == 0);
+
+    returnValue = E_NOT_OK;
+    const Det_ConfigType Det_Config;
+    Det_Init(&Det_Config);
+    returnValue = Det_ReportTransientFault(0, 0, 0, 0);
+    TEST_CHECK(returnValue == E_OK);
+    TEST_CHECK(MyTransientFaultCallout_fake.call_count == 1);
+    TEST_CHECK(MyTransientFaultCallout2_fake.call_count == 1);
 }
 
 /**
@@ -44,8 +105,11 @@ void Test_Of_Det_GetVersionInfo(void)
     @brief List of tests to be performed
 */
 TEST_LIST = {
-/*  { "Test name", Test_Of_<Function Name>         }, */
-    { "Test of Test_Of_Det_Init",           Test_Of_Det_Init },
-    { "Test of Test_Of_Det_GetVersionInfo", Test_Of_Det_GetVersionInfo },
+/*  { "Test name",                  Test_Of_<Function Name>          }, */
+    { "Det_Init",                   Test_Of_Det_Init                 },
+    { "Det_Start",                  Test_Of_Det_Start                },
+    { "Det_ReportRuntimeError",     Test_Of_Det_ReportRuntimeError   },
+    { "Det_ReportTransientFault",   Test_Of_Det_ReportTransientFault },
+    { "Det_GetVersionInfo",         Test_Of_Det_GetVersionInfo       },
     { NULL, NULL } /* Required at the end */
 };
