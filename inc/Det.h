@@ -64,6 +64,8 @@
 /**
     @defgroup CalloutFunctions Callout Functions
     @req [SWS_Det_00180]
+    If callout functions are configured, they should have the same signatures as the corresponding functions. If several callouts are defined for the same
+    service they should have the same ID.
 */
 /**@{*/
 /**
