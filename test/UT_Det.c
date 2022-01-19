@@ -17,6 +17,7 @@ FAKE_VALUE_FUNC(Std_ReturnType, MyRuntimeErrorCallout, uint16, uint8, uint8, uin
 FAKE_VALUE_FUNC(Std_ReturnType, MyRuntimeErrorCallout2, uint16, uint8, uint8, uint8)
 FAKE_VALUE_FUNC(Std_ReturnType, MyTransientFaultCallout, uint16, uint8, uint8, uint8)
 FAKE_VALUE_FUNC(Std_ReturnType, MyTransientFaultCallout2, uint16, uint8, uint8, uint8)
+FAKE_VOID_FUNC(ProgramHalt)
 
 /**
     @brief Test of Det_Init implementation
@@ -41,9 +42,19 @@ void Test_Of_Det_Start(void)
 */
 void Test_Of_Det_ReportError(void)
 {
-    Std_ReturnType returnValue;
+    Std_ReturnType returnValue = E_NOT_OK;
+
     returnValue = Det_ReportError(0, 0, 0, 0);
-    // TODO test exit() behavior
+    TEST_CHECK(MyErrorHook_fake.call_count == 0);
+    TEST_CHECK(MyErrorHook_fake.call_count == 0);
+    TEST_CHECK(ProgramHalt_fake.call_count == 1);
+
+    const Det_ConfigType Det_Config;
+    Det_Init(&Det_Config);
+    returnValue = Det_ReportError(0, 0, 0, 0);
+    TEST_CHECK(MyErrorHook_fake.call_count == 1);
+    TEST_CHECK(MyErrorHook_fake.call_count == 1);
+    TEST_CHECK(ProgramHalt_fake.call_count == 2);
     (void)returnValue;
 }
 
@@ -92,6 +103,9 @@ void Test_Of_Det_ReportTransientFault(void)
 */
 void Test_Of_Det_GetVersionInfo(void)
 {
+    Det_GetVersionInfo(NULL);
+    TEST_CHECK(ProgramHalt_fake.call_count == 1);
+
     Std_VersionInfoType VersionInfo;
     Det_GetVersionInfo(&VersionInfo);
     TEST_CHECK(VersionInfo.moduleID == DET_MODULE_ID);
@@ -108,6 +122,7 @@ TEST_LIST = {
 /*  { "Test name",                  Test_Of_<Function Name>          }, */
     { "Det_Init",                   Test_Of_Det_Init                 },
     { "Det_Start",                  Test_Of_Det_Start                },
+    { "Det_ReportError",            Test_Of_Det_ReportError          },
     { "Det_ReportRuntimeError",     Test_Of_Det_ReportRuntimeError   },
     { "Det_ReportTransientFault",   Test_Of_Det_ReportTransientFault },
     { "Det_GetVersionInfo",         Test_Of_Det_GetVersionInfo       },
