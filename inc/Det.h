@@ -1,5 +1,6 @@
 /**
     @file Det.h
+    @req [SWS_Det_00037]
     @brief The Default Error Tracer provides functionality to support error detection and
     tracing of errors during the development and runtime of Software Components and other
     Basic Software Modules. For this purpose the Default Error Tracer receives and evaluates
@@ -21,28 +22,28 @@
     Define Published information elements
 */
 /**@{*/
-/** 
+/**
     @brief Vendor ID (vendorId) of the dedicated
     implementation of this module according to the
     AUTOSAR vendor list.
 */
 #define DET_MODULE_ID            1
-/** 
+/**
     @brief Module ID of this module, as defined in the BSW
     Module List.
 */
 #define DET_VENDOR_ID            1
-/** 
+/**
     @brief Major version number of the vendor specific
     implementation of the module.
 */
 #define DET_SW_MAJOR_VERSION     4
-/** 
+/**
     @brief Minor version number of the vendor specific
     implementation of the module.
 */
 #define DET_SW_MINOR_VERSION     7
-/** 
+/**
     @brief Patch level version number of the vendor specific
     implementation of the module.
 */
@@ -54,7 +55,7 @@
     @req [SWS_BSW_00059]
 */
 /**@{*/
-/** 
+/**
     @brief Function called with null parameter pointer.
 */
 #define DET_E_PARAM_POINTER     0x01
@@ -69,19 +70,19 @@
 /**@{*/
 /**
     @brief Type used as User_Error_Hooks.
-    @req [SWS_Det_00181]
+    @req [SWS_Det_00181], [SWS_Det_00035], [SWS_Det_00180]
 */
 typedef Std_ReturnType (*Det_ErrorHook_t)(uint16 ModuleId, uint8 InstanceId , uint8 ApiId, uint8 ErrorId);
 
 /**
     @brief Type used as DetReportRuntimeErrorCallout.
-    @req [SWS_Det_00184]
+    @req [SWS_Det_00184], [SWS_Det_00035], [SWS_Det_00180]
 */
 typedef Det_ErrorHook_t Det_RuntimeErrorCallout_t;
 
 /**
     @brief Type used as DetReportTransientFaultCallout.
-    @req [SWS_Det_00187]
+    @req [SWS_Det_00187], [SWS_Det_00035], [SWS_Det_00180]
 */
 typedef Det_ErrorHook_t Det_TransientFaultCallout_t;
 /**@}*/
@@ -98,7 +99,7 @@ typedef uint8 Det_ConfigType;
 /**@{*/
 /**
     @brief Service to initialize the Default Error Tracer.
-    @req [SWS_Det_00008]
+    @req [SWS_Det_00008], [SWS_Det_00019]
 
     @param ConfigPtr Pointer to the selected configuration set.
 */
@@ -106,7 +107,7 @@ void Det_Init (const Det_ConfigType* ConfigPtr);
 
 /**
     @brief Service to report development errors.
-    @req [SWS_Det_00009]
+    @req [SWS_Det_00009], [SWS_Det_00039], [SWS_Det_00026]
 
     @param ModuleId Module ID of calling module.
     @param InstanceId The identifier of the index based instance of a module, starting
@@ -124,14 +125,14 @@ Std_ReturnType Det_ReportError (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, 
 
 /**
     @brief Service to start the Default Error Tracer.
-    @req [SWS_Det_00010]
+    @req [SWS_Det_00010], [SWS_Det_00025]
 */
 void Det_Start (void);
 
 /**
     @brief Service to report runtime errors. If a callout has been configured then this callout shall be
     called.
-    @req [SWS_Det_01001]
+    @req [SWS_Det_01001], [SWS_Det_00039], [SWS_Det_00026]
 
     @param ModuleId Module ID of calling module.
     @param InstanceId The identifier of the index based instance of a module, starting
@@ -150,7 +151,7 @@ Std_ReturnType Det_ReportRuntimeError (uint16 ModuleID, uint8 InstanceID, uint8 
     @brief Service to report transient faults. If a callout has been configured than this callout shall be
     called and the returned value of the callout shall be returned. Otherwise it returns immediately
     with E_OK.
-    @req [SWS_Det_01003]
+    @req [SWS_Det_01003], [SWS_Det_00039], [SWS_Det_00026]
 
     @param ModuleId Module ID of calling module.
     @param InstanceId The identifier of the index based instance of a module, starting
