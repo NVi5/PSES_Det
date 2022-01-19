@@ -13,7 +13,7 @@ SRC_FILES = $(SRC_DIR)/Det.c $(SRC_DIR)/Det_User.c
 TEST_FILE = $(TEST_DIR)/UT_Det.c
 
 all: $(BUILD_DIR)/$(TARGET)
-	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR) -I $(INC_DIR) --xml --xml-version=2 2>build/report.xml
+	cppcheck --addon=cert --cppcheck-build-dir=$(BUILD_DIR) $(SRC_DIR) -I $(INC_DIR) --xml --xml-version=2 2>build/cppcheck.xml
 	./$(BUILD_DIR)/$(TARGET)
 	@mv *.gcda $(BUILD_DIR)
 	@mv *.gcno $(BUILD_DIR)
