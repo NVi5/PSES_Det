@@ -33,11 +33,11 @@ Std_ReturnType MyRuntimeErrorCallout2(uint16 ModuleId, uint8 InstanceId, uint8 A
 Std_ReturnType MyTransientFaultCallout(uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId) {
     printf("Reported Transient Fault Callout: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d\n",
             ModuleId, InstanceId, ApiId, ErrorId);
-    return E_OK;
+    return ModuleId == 0 ? E_OK : E_NOT_OK;
 }
 
 Std_ReturnType MyTransientFaultCallout2(uint16 ModuleId, uint8 InstanceId, uint8 ApiId, uint8 ErrorId) {
     printf("Reported Transient Fault Callout 2: ModuleId:%d, InstanceId:%d, ApiId:%d, ErrorId:%d\n",
             ModuleId, InstanceId, ApiId, ErrorId);
-    return E_OK;
+    return ModuleId == 0 ? E_OK : E_NOT_OK;
 }

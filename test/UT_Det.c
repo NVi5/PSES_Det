@@ -89,13 +89,22 @@ void Test_Of_Det_ReportTransientFault(void)
     TEST_CHECK(MyTransientFaultCallout_fake.call_count == 0);
     TEST_CHECK(MyTransientFaultCallout2_fake.call_count == 0);
 
-    returnValue = E_NOT_OK;
     const Det_ConfigType Det_Config;
     Det_Init(&Det_Config);
+
+    returnValue = E_NOT_OK;
     returnValue = Det_ReportTransientFault(0, 0, 0, 0);
     TEST_CHECK(returnValue == E_OK);
     TEST_CHECK(MyTransientFaultCallout_fake.call_count == 1);
     TEST_CHECK(MyTransientFaultCallout2_fake.call_count == 1);
+
+    MyTransientFaultCallout_fake.return_val = E_NOT_OK;
+    MyTransientFaultCallout2_fake.return_val = E_OK;
+    returnValue = E_OK;
+    returnValue = Det_ReportTransientFault(0, 0, 0, 0);
+    TEST_CHECK(returnValue == E_NOT_OK);
+    TEST_CHECK(MyTransientFaultCallout_fake.call_count == 2);
+    TEST_CHECK(MyTransientFaultCallout2_fake.call_count == 2);
 }
 
 /**
