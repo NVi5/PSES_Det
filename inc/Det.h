@@ -16,20 +16,56 @@
 #include "Std_Types.h"
 
 /**
+    @defgroup PublishedInformationElements Published information elements
     @req [SWS_BSW_00059]
     Define Published information elements
 */
+/**@{*/
+/** 
+    @brief Vendor ID (vendorId) of the dedicated
+    implementation of this module according to the
+    AUTOSAR vendor list.
+*/
 #define DET_MODULE_ID            1
+/** 
+    @brief Module ID of this module, as defined in the BSW
+    Module List.
+*/
 #define DET_VENDOR_ID            1
-#define DET_SW_MAJOR_VERSION     21
-#define DET_SW_MINOR_VERSION     11
+/** 
+    @brief Major version number of the vendor specific
+    implementation of the module.
+*/
+#define DET_SW_MAJOR_VERSION     4
+/** 
+    @brief Minor version number of the vendor specific
+    implementation of the module.
+*/
+#define DET_SW_MINOR_VERSION     7
+/** 
+    @brief Patch level version number of the vendor specific
+    implementation of the module.
+*/
 #define DET_SW_PATCH_VERSION     0
+/**@}*/
 
 /**
-    @req [SWS_BSW_00073]
+    @defgroup ImplementationSpecificErrors Implementation specific errors
+    @req [SWS_BSW_00059]
+    Define Published information elements
+*/
+/**@{*/
+/** 
+    @brief Function called with null parameter pointer.
 */
 #define DET_E_PARAM_POINTER     0x01
+/**@}*/
 
+/**
+    @defgroup CalloutFunctions Callout Functions
+    @req [SWS_Det_00180]
+*/
+/**@{*/
 /**
     @brief Type used as User_Error_Hooks.
     @req [SWS_Det_00181]
@@ -47,6 +83,7 @@ typedef Det_ErrorHook_t Det_RuntimeErrorCallout_t;
     @req [SWS_Det_00187]
 */
 typedef Det_ErrorHook_t Det_TransientFaultCallout_t;
+/**@}*/
 
 /**
     @brief Configuration data structure of the Det module.
@@ -54,6 +91,10 @@ typedef Det_ErrorHook_t Det_TransientFaultCallout_t;
 */
 typedef uint8 Det_ConfigType;
 
+/**
+    @defgroup APIFunctions API Functions
+*/
+/**@{*/
 /**
     @brief Service to initialize the Default Error Tracer.
     @req [SWS_Det_00008]
@@ -135,5 +176,6 @@ Std_ReturnType Det_ReportTransientFault (uint16 ModuleID, uint8 InstanceID, uint
     @param versioninfo Pointer to where to store the version information of this module.
 */
 void Det_GetVersionInfo (Std_VersionInfoType* versioninfo);
+/**@}*/
 
 #endif /* DET */

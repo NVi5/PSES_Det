@@ -80,8 +80,7 @@ void Det_GetVersionInfo(Std_VersionInfoType* versioninfo) {
 
     if (NULL == versioninfo) {
         /**
-         * @req [SWS_Det_00301]
-         * @req [SWS_Det_00052]
+         * @req [SWS_Det_00301], [SWS_Det_00052]
          * Det_GetVersionInfo called with null parameterpointer
          */
         Det_ReportError(DET_MODULE_ID, 0, 3, DET_E_PARAM_POINTER);
