@@ -13,7 +13,7 @@ typedef struct {
     Det_TransientFaultCallout_t transientFaultHooks[DET_NUMBER_OF_TRANSIENT_FAULT_CALLOUTS];
 } DetCfg;
 
-DetCfg det_cfg = {
+static DetCfg det_cfg = {
     .isInitialized = FALSE,
     .errorHooks = {MyErrorHook, MyErrorHook2},
     .runtimeErrorHooks = {MyRuntimeErrorCallout, MyRuntimeErrorCallout2},

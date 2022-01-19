@@ -6,7 +6,7 @@ BUILD_DIR = build
 INCLUDES = -I $(INC_DIR)
 INCLUDES += -I $(SRC_DIR)
 
-CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage -Wextra -Wpedantic
+CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage -Wall -Wextra -Wpedantic
 
 TARGET = UT_Det
 SRC_FILES = $(SRC_DIR)/Det.c $(SRC_DIR)/Det_User.c
