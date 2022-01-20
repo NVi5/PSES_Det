@@ -5,6 +5,7 @@
 
 #include "Det.h"
 #include "Det_Externals.h"
+#include "OS_Functions.h"
 
 typedef struct {
     boolean isInitialized;
@@ -24,8 +25,6 @@ static DetCfg det_cfg = {
     .runtimeErrorHooks = {MyRuntimeErrorCallout, MyRuntimeErrorCallout2},
     .transientFaultHooks = {MyTransientFaultCallout, MyTransientFaultCallout2},
 };
-
-extern void ProgramHalt(void);
 
 #define Det_GetCfg() (&det_cfg)
 #define ARRAY_DIM(x) (sizeof((x)) / sizeof((x)[0]))
@@ -62,7 +61,6 @@ Std_ReturnType Det_ReportError(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, u
         }
     }
 
-    //exit(1);
     ProgramHalt();
     return E_OK;
 }
