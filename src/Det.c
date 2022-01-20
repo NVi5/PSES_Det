@@ -120,6 +120,7 @@ Std_ReturnType Det_ReportTransientFault(uint16 ModuleID, uint8 InstanceID, uint8
     return result != E_OK ? E_NOT_OK : E_OK;
 }
 
+#if (DET_VERSIONINFO_API == STD_ON)
 void Det_GetVersionInfo(Std_VersionInfoType* versioninfo) {
 
     if (NULL == versioninfo) {
@@ -137,3 +138,4 @@ void Det_GetVersionInfo(Std_VersionInfoType* versioninfo) {
         versioninfo->sw_patch_version = DET_SW_PATCH_VERSION;
     }
 }
+#endif

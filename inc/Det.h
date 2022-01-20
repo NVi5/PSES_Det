@@ -177,7 +177,9 @@ Std_ReturnType Det_ReportTransientFault (uint16 ModuleID, uint8 InstanceID, uint
 
     @param versioninfo Pointer to where to store the version information of this module.
 */
+#if (DET_VERSIONINFO_API == STD_ON)
 void Det_GetVersionInfo (Std_VersionInfoType* versioninfo);
+#endif
 /**@}*/
 
 #endif /* DET */

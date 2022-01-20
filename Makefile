@@ -5,6 +5,7 @@ BUILD_DIR = build
 
 INCLUDES = -I $(INC_DIR)
 INCLUDES += -I $(SRC_DIR)
+DEFINES = -D DET_VERSIONINFO_API=1
 
 CFLAGS = $(INCLUDES) -fprofile-arcs -ftest-coverage -g --coverage -Wall -Wextra -Wpedantic
 
@@ -25,7 +26,7 @@ clean:
 	@rm -rf $(BUILD_DIR)
 
 $(BUILD_DIR)/$(TARGET): $(SRC_FILES) $(TEST_FILE) $(BUILD_DIR)
-	gcc $(TEST_FILE) -o $@ $(CFLAGS)
+	gcc $(TEST_FILE) -o $@ $(CFLAGS) $(DEFINES)
 
 $(BUILD_DIR):
 	@mkdir -p $@

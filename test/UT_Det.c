@@ -110,6 +110,7 @@ void Test_Of_Det_ReportTransientFault(void)
 /**
     @brief Test of Det_GetVersionInfo implementation
 */
+#if (DET_VERSIONINFO_API == STD_ON)
 void Test_Of_Det_GetVersionInfo(void)
 {
     Det_GetVersionInfo(NULL);
@@ -123,6 +124,7 @@ void Test_Of_Det_GetVersionInfo(void)
     TEST_CHECK(VersionInfo.sw_minor_version == DET_SW_MINOR_VERSION);
     TEST_CHECK(VersionInfo.sw_patch_version == DET_SW_PATCH_VERSION);
 }
+#endif
 
 /**
     @brief List of tests to be performed
@@ -134,6 +136,8 @@ TEST_LIST = {
     { "Det_ReportError",            Test_Of_Det_ReportError          },
     { "Det_ReportRuntimeError",     Test_Of_Det_ReportRuntimeError   },
     { "Det_ReportTransientFault",   Test_Of_Det_ReportTransientFault },
+    #if (DET_VERSIONINFO_API == STD_ON)
     { "Det_GetVersionInfo",         Test_Of_Det_GetVersionInfo       },
+    #endif
     { NULL, NULL } /* Required at the end */
 };
