@@ -3,7 +3,7 @@ Implementation of [Specification of Default Error Tracer AUTOSAR CP R21-11](http
 
 ## Tools
  - Compiler: GCC
- - Static analysis: Cppcheck
+ - Static analysis: Cppcheck - Cert C profile
  - Coverage: gcov, gcovr
  - Unit tests: Acutest
  - Mocks: fff
