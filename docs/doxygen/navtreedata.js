@@ -27,6 +27,7 @@ var NAVTREE =
   [ "Default Error Tracer", "index.html", [
     [ "Tools", "index.html#autotoc_md1", null ],
     [ "Makefile", "index.html#autotoc_md2", null ],
+    [ "Reports", "index.html#autotoc_md3", null ],
     [ "Requirements", "d5/dc0/req.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Data Structures", "annotated.html", [

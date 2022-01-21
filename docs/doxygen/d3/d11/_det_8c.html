@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('d3/d11/_det_8c.html','../../'); initRe
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../dc/dea/_det_8h_source.html">Det.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d26/_det___externals_8h_source.html">Det_Externals.h</a>&quot;</code><br />
+<code>#include &quot;OS_Functions.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -120,9 +121,6 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5cdd90d8cd60548f65b392f84c7721fc"><td class="memItemLeft" align="right" valign="top"><a id="a5cdd90d8cd60548f65b392f84c7721fc" name="a5cdd90d8cd60548f65b392f84c7721fc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramHalt</b> (void)</td></tr>
-<tr class="separator:a5cdd90d8cd60548f65b392f84c7721fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3bc5270a9c6e579466b708d55abff1ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd5/group___a_p_i_functions.html#ga3bc5270a9c6e579466b708d55abff1ee">Det_Init</a> (const <a class="el" href="../../dc/dea/_det_8h.html#a5e9868c3b924147e5dd1d068f74755a6">Det_ConfigType</a> *ConfigPtr)</td></tr>
 <tr class="memdesc:ga3bc5270a9c6e579466b708d55abff1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service to initialize the Default Error Tracer.  <a href="../../d7/dd5/group___a_p_i_functions.html#ga3bc5270a9c6e579466b708d55abff1ee">More...</a><br /></td></tr>
 <tr class="separator:ga3bc5270a9c6e579466b708d55abff1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,9 +136,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ProgramHalt</b> (void
 <tr class="memitem:gaa8fd6552df2c58d95158abf31305088a"><td class="memItemLeft" align="right" valign="top">Std_ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd5/group___a_p_i_functions.html#gaa8fd6552df2c58d95158abf31305088a">Det_ReportTransientFault</a> (uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId)</td></tr>
 <tr class="memdesc:gaa8fd6552df2c58d95158abf31305088a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service to report transient faults.  <a href="../../d7/dd5/group___a_p_i_functions.html#gaa8fd6552df2c58d95158abf31305088a">More...</a><br /></td></tr>
 <tr class="separator:gaa8fd6552df2c58d95158abf31305088a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0f558f2aa886b5d6c175173dc52f7ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd5/group___a_p_i_functions.html#ga0f558f2aa886b5d6c175173dc52f7ecd">Det_GetVersionInfo</a> (<a class="el" href="../../d3/d3f/struct_std___version_info_type.html">Std_VersionInfoType</a> *versioninfo)</td></tr>
-<tr class="memdesc:ga0f558f2aa886b5d6c175173dc52f7ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the version information of this module.  <a href="../../d7/dd5/group___a_p_i_functions.html#ga0f558f2aa886b5d6c175173dc52f7ecd">More...</a><br /></td></tr>
-<tr class="separator:ga0f558f2aa886b5d6c175173dc52f7ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Implementation of Default Error Tracer. </p>

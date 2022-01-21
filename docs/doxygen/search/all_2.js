@@ -7,7 +7,7 @@ var searchData=
   ['det_5fe_5fparam_5fpointer_4',['DET_E_PARAM_POINTER',['../d1/db7/group___implementation_specific_errors.html#ga98103b60f467bd77fa26a27f8ee7ed08',1,'Det.h']]],
   ['det_5ferrorhook_5ft_5',['Det_ErrorHook_t',['../d9/d52/group___callout_functions.html#gacee3c37c3d7ca86b973af558b39052c8',1,'Det.h']]],
   ['det_5fexternals_2eh_6',['Det_Externals.h',['../d7/d26/_det___externals_8h.html',1,'']]],
-  ['det_5fgetversioninfo_7',['Det_GetVersionInfo',['../d7/dd5/group___a_p_i_functions.html#ga0f558f2aa886b5d6c175173dc52f7ecd',1,'Det_GetVersionInfo(Std_VersionInfoType *versioninfo):&#160;Det.c'],['../d7/dd5/group___a_p_i_functions.html#ga0f558f2aa886b5d6c175173dc52f7ecd',1,'Det_GetVersionInfo(Std_VersionInfoType *versioninfo):&#160;Det.c']]],
+  ['det_5fgetversioninfo_7',['Det_GetVersionInfo',['../d7/dd5/group___a_p_i_functions.html#ga0f558f2aa886b5d6c175173dc52f7ecd',1,'Det.h']]],
   ['det_5finit_8',['Det_Init',['../d7/dd5/group___a_p_i_functions.html#ga3bc5270a9c6e579466b708d55abff1ee',1,'Det_Init(const Det_ConfigType *ConfigPtr):&#160;Det.c'],['../d7/dd5/group___a_p_i_functions.html#ga3bc5270a9c6e579466b708d55abff1ee',1,'Det_Init(const Det_ConfigType *ConfigPtr):&#160;Det.c']]],
   ['det_5fmodule_5fid_9',['DET_MODULE_ID',['../dc/dd8/group___published_information_elements.html#ga37faeab001b41a62137fe42b785bd779',1,'Det.h']]],
   ['det_5freporterror_10',['Det_ReportError',['../d7/dd5/group___a_p_i_functions.html#gafa0f5c6e16a864e68e8be264bcd7869e',1,'Det_ReportError(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId):&#160;Det.c'],['../d7/dd5/group___a_p_i_functions.html#gafa0f5c6e16a864e68e8be264bcd7869e',1,'Det_ReportError(uint16 ModuleID, uint8 InstanceID, uint8 ApiId, uint8 ErrorId):&#160;Det.c']]],
